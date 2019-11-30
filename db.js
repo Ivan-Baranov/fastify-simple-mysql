@@ -1,33 +1,37 @@
 "use strict"
 
+/// <reference path="mysql2" />
+/// <reference path="fastify" />
+
 /**
  * Simple MySQL
  */
 class Db {
     /**
-     * @param {mysql2.pool} pool mysql2 pool
-     * @param {{}} logger moleculer service.logger
+     * @param {PromisePool} pool
+     * @param {FastifyInstance.log} logger
      */
     constructor(pool, logger) {
+        /**
+         * @type {PromisePool}
+         * @private
+         */
         this._pool = pool
+        /**
+         * @type {FastifyInstance.log}
+         * @private
+         */
         this._logger = logger
         this._logger.debug("MySQL:connect")
     }
 
     /**
-     * @returns {*}
-     */
-    provider() {
-        return this._pool
-    }
-
-    /**
-     * Emulate query
+     * Format query
      * @param {String} sql
      * @param {{}} params
      * @returns {Promise<string>} raw query
      */
-    async emu(sql, params = {}) {
+    async format(sql, params = {}) {
         return this._pool.format(sql, params)
     }
 
@@ -74,7 +78,7 @@ class Db {
      * @param {{}} params
      * @returns {Promise<Array>} if no results, return empty array []
      */
-    async col(sql, params = {}) {
+    async column(sql, params = {}) {
         const rows = await this.rows(sql, params)
         if (!rows.length) return []
         const [prop] = Object.keys(rows[0])
@@ -87,7 +91,7 @@ class Db {
      * @param {{}} params
      * @returns {Promise<string|number|null>}
      */
-    async val(sql, params = {}) {
+    async value(sql, params = {}) {
         const row = await this.row(sql, params)
         if (!row) return null
         const [prop] = Object.keys(row)
@@ -99,7 +103,7 @@ class Db {
      * @returns {Promise<number>}
      */
     async total() {
-        return +(await this.val("SELECT FOUND_ROWS()"))
+        return +(await this.value("SELECT FOUND_ROWS()"))
     }
 
     /**
