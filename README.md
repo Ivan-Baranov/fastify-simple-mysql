@@ -7,7 +7,7 @@ Features
 * config via ENV  
 
 ## Prepare
-Set env MYSQL_URL (see: example.env).
+Set env MYSQL_URL (see: [example.env](./example.env)).
 
 Recommend use with [fastify-graceful-shutdown](https://github.com/hemerajs/fastify-graceful-shutdown) plugin for close connection on shutdown.
 
