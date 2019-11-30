@@ -1,0 +1,19 @@
+{
+    "name": "fastify-simple-mysql",
+    "version": "1.0.0",
+    "description": "Fastify Simple MySQL",
+    "main": "index.js",
+    "repository": "https://github.com/Ivan-Baranov/fastify-simple-mysql",
+    "author": "i.m.baranov@gmail.com",
+    "license": "MIT",
+    "private": false,
+    "dependencies": {
+        "mysql2": "^2.0.1"
+    },
+    "devDependencies": {
+        "@types/mysql": "^2.15.8"
+    },
+    "engines": {
+        "node": ">=12"
+    }
+}
