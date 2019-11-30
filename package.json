@@ -17,5 +17,6 @@
     },
     "engines": {
         "node": ">=12"
-    }
+    },
+    "keywords": ["fastify","fastify-plugin","mysql"]
 }

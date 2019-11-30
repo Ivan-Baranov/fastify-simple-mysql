@@ -14,11 +14,11 @@ Recommend use with [fastify-graceful-shutdown](https://github.com/hemerajs/fasti
 ## Methods
 * query - query
 * rows - all rows as array of objects
-* row - single row as object
-* column - single column as array ov values
-* value - single value (cell)
+* row - single row as object (first row)
+* column - single column as array of values (first column)
+* value - single value (first field from first row)
 * insert - insert and return insertId
-* total - query and return CALC_FOUND_ROWS
+* total - return value of SELECT CALC_FOUND_ROWS() query
 
 ## Use
 ```javascript
