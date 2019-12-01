@@ -31,7 +31,7 @@ function plugin(fastify, opts, done) {
 
     if (process.env.NODE_ENV !== "production") {
         fastify.after(async () => {
-            let testDb = await db.val(`SELECT :a + :a * :a`, { a: 2 })
+            let testDb = await db.value(`SELECT :a + :a * :a`, { a: 2 })
             fastify.log.info({ testDb })
         })
     }
