@@ -1,6 +1,6 @@
 {
     "name": "fastify-simple-mysql",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Fastify Simple MySQL",
     "main": "index.js",
     "repository": "https://github.com/Ivan-Baranov/fastify-simple-mysql",
