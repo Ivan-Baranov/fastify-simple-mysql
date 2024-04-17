@@ -9,7 +9,7 @@
     "private": false,
     "dependencies": {
         "fastify-plugin": "^1.6.0",
-        "mysql2": "^2.0.1"
+        "mysql2": "^3.9.4"
     },
     "devDependencies": {
         "@types/mysql": "^2.15.8",
